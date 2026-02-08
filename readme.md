@@ -7,6 +7,14 @@ Supports PowerShell 5.1 (Desktop) and PowerShell 7+ (Core).
 ## Installation
 
 ```powershell
+# Install from PowerShell Gallery
+Install-Module -Name M365Connect -Scope CurrentUser
+Import-Module M365Connect
+```
+
+Or install from source:
+
+```powershell
 # Clone the repo
 git clone https://github.com/nikkelly/M365Connect.git
 
@@ -93,15 +101,15 @@ Add-MSAppRegistration
 
 ## Changelog
 
-### v3.0.0
-- Converted to PowerShell module format (.psd1 / .psm1)
-- Added PowerShell 7+ support with Microsoft Graph fallback for deprecated modules
-- Added service principal / app registration authentication (certificate or client secret)
-- Added `Connect-MSIntune`, `Connect-MSExchangeServer`, `Connect-MSGraph`
-- Added `Get-MSConnectionStatus` for connection monitoring
-- Added `ShouldProcess` support (`-WhatIf` / `-Confirm`) on state-changing functions
-- All original aliases preserved for backward compatibility
-- Resolved all PSScriptAnalyzer errors and warnings
+### v1.0.0
+- Initial release on PowerShell Gallery
+- PowerShell module format (.psd1 / .psm1) with Public/Private function layout
+- PowerShell 5.1 and 7+ support with Microsoft Graph fallback for deprecated modules
+- Service principal / app registration authentication (certificate or client secret)
+- Interactive and stored credential authentication with optional MFA
+- Connection tracking and status reporting via `Get-MSConnectionStatus`
+- `ShouldProcess` support (`-WhatIf` / `-Confirm`) on state-changing functions
+- Backward-compatible aliases for all original commands
 
 ### v2.0
 - Refactored the entire project to be more dynamic
