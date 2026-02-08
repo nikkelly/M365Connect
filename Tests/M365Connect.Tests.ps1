@@ -31,8 +31,8 @@ Describe 'Module Import' {
     }
 
     It 'Should have the correct module version' {
-        $module = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '3.0.0' } | Select-Object -First 1
-        $module.Version | Should -Be '3.0.0'
+        $module = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '1.0.0' } | Select-Object -First 1
+        $module.Version | Should -Be '1.0.0'
     }
 }
 
@@ -138,7 +138,7 @@ Describe 'Show-MSCommands' {
 Describe 'Module State' {
     It 'Should have initialized MSProfileState' {
         # Access via module scope - select the v3 module specifically
-        $mod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '3.0.0' } | Select-Object -First 1
+        $mod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '1.0.0' } | Select-Object -First 1
         $state = & $mod { $script:MSProfileState }
         $state | Should -Not -BeNullOrEmpty
         # ConnectedServices is initialized as empty ArrayList, so check it exists (not null)
@@ -147,7 +147,7 @@ Describe 'Module State' {
     }
 
     It 'Should have correct PS version info' {
-        $mod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '3.0.0' } | Select-Object -First 1
+        $mod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '1.0.0' } | Select-Object -First 1
         $state = & $mod { $script:MSProfileState }
         $state.PSVersionInfo.Major | Should -Be $PSVersionTable.PSVersion.Major
         $state.PSVersionInfo.IsCore | Should -Be ($PSVersionTable.PSEdition -eq 'Core')
@@ -156,7 +156,7 @@ Describe 'Module State' {
 
 Describe 'PowerShell 7 Compatibility' {
     BeforeAll {
-        $script:testMod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '3.0.0' } | Select-Object -First 1
+        $script:testMod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '1.0.0' } | Select-Object -First 1
     }
 
     It 'Should correctly identify PowerShell version capability' {
@@ -173,7 +173,7 @@ Describe 'PowerShell 7 Compatibility' {
 
 Describe 'Add-MSMFA and Remove-MSMFA' {
     BeforeAll {
-        $script:testMod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '3.0.0' } | Select-Object -First 1
+        $script:testMod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '1.0.0' } | Select-Object -First 1
     }
 
     AfterEach {
@@ -221,7 +221,7 @@ Describe 'Parameter Validation' {
 
 Describe 'Connect-MSTeams (mocked)' {
     BeforeAll {
-        $script:testMod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '3.0.0' } | Select-Object -First 1
+        $script:testMod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '1.0.0' } | Select-Object -First 1
     }
 
     BeforeEach {
@@ -273,7 +273,7 @@ Describe 'Connect-MSTeams (mocked)' {
 
 Describe 'Connect-MSGraph (mocked)' {
     BeforeAll {
-        $script:testMod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '3.0.0' } | Select-Object -First 1
+        $script:testMod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '1.0.0' } | Select-Object -First 1
     }
 
     BeforeEach {
@@ -342,7 +342,7 @@ Describe 'Connect-MSGraph (mocked)' {
 
 Describe 'Connect-MSExchange (mocked)' {
     BeforeAll {
-        $script:testMod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '3.0.0' } | Select-Object -First 1
+        $script:testMod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '1.0.0' } | Select-Object -First 1
     }
 
     BeforeEach {
@@ -379,7 +379,7 @@ Describe 'Connect-MSExchange (mocked)' {
 
 Describe 'Connect-MSAzureAD PS7+ redirect (mocked)' {
     BeforeAll {
-        $script:testMod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '3.0.0' } | Select-Object -First 1
+        $script:testMod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '1.0.0' } | Select-Object -First 1
     }
 
     BeforeEach {
@@ -407,7 +407,7 @@ Describe 'Connect-MSAzureAD PS7+ redirect (mocked)' {
 
 Describe 'Connect-AllMSServices (mocked)' {
     BeforeAll {
-        $script:testMod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '3.0.0' } | Select-Object -First 1
+        $script:testMod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '1.0.0' } | Select-Object -First 1
     }
 
     BeforeEach {
@@ -434,7 +434,7 @@ Describe 'Connect-AllMSServices (mocked)' {
 
 Describe 'Disconnect-AllMSServices (mocked)' {
     BeforeAll {
-        $script:testMod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '3.0.0' } | Select-Object -First 1
+        $script:testMod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '1.0.0' } | Select-Object -First 1
     }
 
     It 'Should not throw when no services connected' {
@@ -463,7 +463,7 @@ Describe 'Disconnect-AllMSServices (mocked)' {
 
 Describe 'Test-AlreadyConnected' {
     BeforeAll {
-        $script:testMod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '3.0.0' } | Select-Object -First 1
+        $script:testMod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '1.0.0' } | Select-Object -First 1
     }
 
     It 'Should return $false when no services are connected' {
@@ -492,7 +492,7 @@ Describe 'Test-AlreadyConnected' {
 
 Describe 'Export-MSAppRegistration' {
     It 'Should exist as a private function' {
-        $mod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '3.0.0' } | Select-Object -First 1
+        $mod = Get-Module -Name M365Connect | Where-Object { $_.Version -eq '1.0.0' } | Select-Object -First 1
         $result = & $mod { Get-Command Export-MSAppRegistration -ErrorAction SilentlyContinue }
         $result | Should -Not -BeNullOrEmpty
     }

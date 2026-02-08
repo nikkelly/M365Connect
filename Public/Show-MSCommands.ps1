@@ -1,7 +1,7 @@
 function Show-MSCommands {
     <#
     .SYNOPSIS
-        Displays available Microsoft Services Profile commands.
+        Displays available M365Connect commands.
 
     .DESCRIPTION
         Shows the module banner, available connection commands, account management
@@ -26,12 +26,12 @@ function Show-MSCommands {
     )
 
     $mod = Get-Module M365Connect
-    $version = if ($mod) { $mod.Version.ToString() } else { '3.0.0' }
+    $version = if ($mod) { $mod.Version.ToString() } else { '1.0.0' }
     $versionInfo = $script:MSProfileState.PSVersionInfo
     $foregroundColor = $script:MSProfileState.ForegroundColor
 
     # Banner
-    Write-ColorOutput -Text "--==Microsoft Services Profile v", $version, " loaded==--" -Color Yellow, Green, Yellow
+    Write-ColorOutput -Text "--==M365Connect v", $version, " loaded==--" -Color Yellow, Green, Yellow
     Write-Host "PowerShell $($versionInfo.Major).$($versionInfo.Minor) ($($PSVersionTable.PSEdition))" -ForegroundColor Gray
 
     # Account status

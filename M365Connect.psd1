@@ -3,7 +3,7 @@
     RootModule = 'M365Connect.psm1'
 
     # Version number of this module.
-    ModuleVersion = '3.0.0'
+    ModuleVersion = '1.0.0'
 
     # Supported PSEditions
     CompatiblePSEditions = @('Desktop', 'Core')
@@ -87,14 +87,15 @@
 
             # ReleaseNotes of this module
             ReleaseNotes = @'
-## 3.0.0
-- Converted to PowerShell module format with .psd1 manifest
-- Added PowerShell 7 support with Microsoft Graph fallback for deprecated modules
-- Added service principal/app registration authentication support
-- Added backward-compatible aliases for all original commands
-- Fixed Security_Compliance connection bug with -UserPrincipalName parameter
-- Added Get-MSConnectionStatus function for connection monitoring
-- Added deprecation warnings for AzureAD and MSOnline modules
+## 1.0.0
+- Initial release on PowerShell Gallery
+- PowerShell module format (.psd1 / .psm1) with Public/Private function layout
+- PowerShell 5.1 and 7+ support with Microsoft Graph fallback for deprecated modules
+- Service principal/app registration authentication (certificate or client secret)
+- Interactive and stored credential authentication with optional MFA
+- Connection tracking and status reporting via Get-MSConnectionStatus
+- Backward-compatible aliases for all original commands
+- Deprecation warnings for AzureAD and MSOnline modules
 '@
 
             # Prerelease string of this module

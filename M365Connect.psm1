@@ -1,7 +1,7 @@
 #Requires -Version 5.1
 <#
 .SYNOPSIS
-    Microsoft Services Profile - Connect to Microsoft 365 services with a single command.
+    M365Connect - Connect to Microsoft 365 services with a single command.
 
 .DESCRIPTION
     This module provides unified authentication and connection management for multiple
@@ -15,7 +15,7 @@
     - Service principal/app registration authentication (certificate or secret)
 
 .NOTES
-    Version: 3.0.0
+    Version: 1.0.0
     Author: nikkelly
     GitHub: https://github.com/nikkelly/M365Connect
 #>
