@@ -13,6 +13,16 @@ function Initialize-ModuleState {
     [CmdletBinding()]
     param()
 
+    # Disable MSAL WAM (Web Account Manager) broker on PS7+ to prevent
+    # RuntimeBroker NullReferenceException during token acquisition.
+    # This forces MSAL to use browser-based auth instead of the WAM broker,
+    # which fixes Teams, Exchange, SharePoint, and Security & Compliance connections.
+    if ($script:MSProfileState.PSVersionInfo.IsCore -and $script:MSProfileState.PSVersionInfo.IsWindows) {
+        if (-not $env:AZURE_CLIENT_DISABLE_WAM) {
+            $env:AZURE_CLIENT_DISABLE_WAM = 'true'
+        }
+    }
+
     # Import MFA status (check value, not just presence)
     $script:MSProfileState.MFAEnabled = $env:microsoftConnectionMFA -eq 'true'
 

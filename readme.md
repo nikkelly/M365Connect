@@ -101,6 +101,11 @@ Add-MSAppRegistration
 
 ## Changelog
 
+### v1.0.1
+- Fix missing Public/Private folders in published package
+- Fix MSAL WAM broker token error on PS7+ Windows
+- Improve `Get-MSConnectionStatus -Detailed` to list services individually
+
 ### v1.0.0
 - Initial release on PowerShell Gallery
 - PowerShell module format (.psd1 / .psm1) with Public/Private function layout

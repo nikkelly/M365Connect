@@ -26,7 +26,7 @@ function Show-MSCommands {
     )
 
     $mod = Get-Module M365Connect
-    $version = if ($mod) { $mod.Version.ToString() } else { '1.0.0' }
+    $version = if ($mod) { $mod.Version.ToString() } else { '1.0.1' }
     $versionInfo = $script:MSProfileState.PSVersionInfo
     $foregroundColor = $script:MSProfileState.ForegroundColor
 

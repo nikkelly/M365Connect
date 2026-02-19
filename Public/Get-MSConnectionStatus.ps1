@@ -62,7 +62,14 @@ function Get-MSConnectionStatus {
 
     # Connected services
     if ($status.ServiceCount -gt 0) {
-        Write-ColorOutput -Text "`tConnected Services: ", ($status.ConnectedServices -join ', ') -Color $foregroundColor, Green
+        if ($Detailed) {
+            Write-ColorOutput -Text "`tConnected Services: ", "$($status.ServiceCount)" -Color $foregroundColor, Green
+            foreach ($svc in $status.ConnectedServices) {
+                Write-ColorOutput -Text "`t  - ", $svc -Color $foregroundColor, Green
+            }
+        } else {
+            Write-ColorOutput -Text "`tConnected Services: ", ($status.ConnectedServices -join ', ') -Color $foregroundColor, Green
+        }
     } else {
         Write-ColorOutput -Text "`tConnected Services: ", "None" -Color $foregroundColor, Yellow
     }

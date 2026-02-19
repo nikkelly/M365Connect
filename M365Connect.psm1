@@ -15,7 +15,7 @@
     - Service principal/app registration authentication (certificate or secret)
 
 .NOTES
-    Version: 1.0.0
+    Version: 1.0.1
     Author: nikkelly
     GitHub: https://github.com/nikkelly/M365Connect
 #>

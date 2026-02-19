@@ -3,7 +3,7 @@
     RootModule = 'M365Connect.psm1'
 
     # Version number of this module.
-    ModuleVersion = '1.0.0'
+    ModuleVersion = '1.0.1'
 
     # Supported PSEditions
     CompatiblePSEditions = @('Desktop', 'Core')
@@ -87,6 +87,9 @@
 
             # ReleaseNotes of this module
             ReleaseNotes = @'
+## 1.0.1
+- Fix missing Public/Private folders in published package
+
 ## 1.0.0
 - Initial release on PowerShell Gallery
 - PowerShell module format (.psd1 / .psm1) with Public/Private function layout
